@@ -23,8 +23,34 @@ let myCurrentJob = 'Teacher';
 
 // bad variable names
 let job1 = 'programmer';
-let job2 = 'teacher'; */
+let job2 = 'teacher';
 
 // Data Types ------------------------------
-true;
-console.log(true);
+let javascriptIsFun = true;
+console.log(javascriptIsFun);
+
+console.log(typeof true);
+console.log(typeof javascriptIsFun);
+console.log(typeof 23);
+console.log(typeof 'cameron');
+
+javascriptIsFun = "Yes!";
+console.log(javascriptIsFun);
+console.log(typeof javascriptIsFun);
+
+let year;
+console.log(year);
+console.log(typeof year);
+
+year = 1991;
+console.log(typeof year);
+*/
+
+// Declaring Variables----------------------
+let age = 30;
+age = 31;
+
+const birthYear = 1991;
+
+var birthMonth = 'May'; // old method of declaring variables, use only for legacy code
+birthMonth = 'July';
