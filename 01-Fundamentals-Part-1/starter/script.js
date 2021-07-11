@@ -1,4 +1,5 @@
-let js = 'amazing';
+// Variables -------------------------------
+/*let js = 'amazing';
 console.log(40 + 8 + 23 - 10);
 
 console.log('Cameron');
@@ -9,6 +10,7 @@ console.log(firstName);
 console.log(firstName);
 console.log(firstName);
 
+// Variable Name Conventions
 let jonas_matilda = "JM";
 let $function = 27;
 
@@ -21,4 +23,8 @@ let myCurrentJob = 'Teacher';
 
 // bad variable names
 let job1 = 'programmer';
-let job2 = 'teacher';
+let job2 = 'teacher'; */
+
+// Data Types ------------------------------
+true;
+console.log(true);
