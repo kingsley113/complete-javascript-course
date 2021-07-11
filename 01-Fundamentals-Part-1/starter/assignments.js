@@ -1,7 +1,15 @@
 // Assignment #1 - Variables---------------------
-/*
-let country = "USA";
-let continent = "North America";
+// /*
+const country = "USA";
+const continent = "North America";
 let population = 330;
 
-console.log(country + ', ' + continent + ', Population: ' + population + " million"); */
+console.log(country + ', ' + continent + ', Population: ' + population + " million");
+// */
+
+// Assignment #2 - Data Types--------------------
+const isIsland = false;
+let language;
+
+language = 'English';
+console.log("Is Island?: " + isIsland + ", Language: " + language);
