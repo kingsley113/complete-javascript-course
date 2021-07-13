@@ -102,4 +102,51 @@ console.log(x, y);
 const averageAge = (ageCameron + ageJerry) / 2;
 console.log(ageCameron, ageJerry);
 console.log(averageAge);
+
+// Strings and Template Literals------------
+const firstName = 'Cameron';
+const job = 'programmer';
+const birthYear = 1990;
+const year = 2021;
+
+// s$%#y way of writing a compund string
+const cameron = "I'm " + firstName + ', a ' + (year - birthYear) + ' year old ' + job + '!';
+console.log(cameron);
+
+// Template Literal version, similar to string interpolation in ruby
+const cameronNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
+console.log(cameronNew);
+
+// ` works for regular strings also
+console.log(`Just a regular string using back ticks...`);
+
+// multiline strings
+// old way
+console.log('String with \n\ multiple \n\	lines');
+
+// new way using ``
+console.log(`String
+with multiple
+lines`);
+
+// Taking Decisions: If/Else Statements-----
+const age = 15;
+// const isOldEnough = age >= 18;
+
+if (age >= 18) {
+	console.log('Sara can start driving license 🏎');
+}
+else {
+	const yearsLeft = 18 - age;
+	console.log(`Sara is too young. Wait another ${yearsLeft} years.`)
+}
+
+const birthYear = 1990;
+let century;
+if (birthYear <= 2000) {
+	century = 20;
+} else {
+	century = 21;
+}
+console.log(century);
 */
