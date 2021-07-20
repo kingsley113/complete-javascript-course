@@ -193,7 +193,7 @@ if (height) {
 } else {
 	console.log("height is undefined........")
 }
-*/
+
 
 // Equality operators-----------------------
 const age = '18';
@@ -212,3 +212,30 @@ if (favorite === 13) {
 if (favorite !== 13) {
 	console.log("That is the wrong answer, you are silly for liking any other number than 13!")
 }
+
+
+// Boolean logic----------------------------
+
+const hasDriversLicense = true; // A
+const hasGoodVision = true; // B
+
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+if (hasDriversLicense && hasGoodVision) {
+	console.log("Sara is able to drive!")
+} else {
+	console.log("Someone else should drive....")
+}
+
+const isTired = false // C
+
+console.log(hasDriversLicense && hasGoodVision && isTired);
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+	console.log("Sara is able to drive!")
+} else {
+	console.log("Someone else should drive....")
+}
+*/

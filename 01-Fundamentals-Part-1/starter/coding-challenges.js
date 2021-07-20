@@ -45,4 +45,27 @@ if (markBMI > johnBMI) {
 } else {
 	console.log(`John's BMI of ${johnBMI} is higher than Mark's BMI of ${markBMI}`);
 }
+
+
+// Challenge #3----------------------------------
+// set 1
+// const dolphinAvg = (96 + 108 + 99) / 3;
+// const koalaAvg = (88 + 91 + 110) / 3;
+// set 2
+// const dolphinAvg = (97 + 112 + 101) / 3;
+// const koalaAvg = (109 + 95 + 123) / 3;
+// set 3
+const dolphinAvg = (97 + 112 + 101) / 3;
+const koalaAvg = (109 + 95 + 106) / 3;
+
+if (dolphinAvg > koalaAvg && dolphinAvg >= 100) {
+	console.log('Dolphins Win!');
+} else if (dolphinAvg < koalaAvg && koalaAvg >= 100) {
+	console.log('Koalas Win!')
+} else if (dolphinAvg === koalaAvg && dolphinAvg >= 100) {
+	console.log("It's a draw!")
+} else {
+	console.log("There are only losers today...")
+}
+
 */
