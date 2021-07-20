@@ -21,7 +21,7 @@ const markHigherBMI = markBMI > johnBMI;
 console.log('Data Set 2: ', 'Mark: ', markBMI, 'John: ', johnBMI, 'Mark is Chonkier?: ', markHigherBMI);
 
 // BMI = mass / height ** 2
-*/
+
 
 // Challenge #2----------------------------------
 
@@ -45,3 +45,4 @@ if (markBMI > johnBMI) {
 } else {
 	console.log(`John's BMI of ${johnBMI} is higher than Mark's BMI of ${markBMI}`);
 }
+*/

@@ -149,4 +149,66 @@ if (birthYear <= 2000) {
 	century = 21;
 }
 console.log(century);
+
+
+// Type Conversion & Coercion---------------
+// Type Conversion
+const inputYear = '1990';
+console.log(Number(inputYear));
+console.log(Number(inputYear) + 18);
+
+console.log(String(23));
+
+// Type Coercion
+console.log('I am ' + 23 + ' years old');
+// '+' will trigger a conversion to strings and concantonate strings
+console.log('23' - '10' - 3);
+// '-', '*' and '/' will trigger a conversion to numbers and evaluate
+console.log('23' * '2');
+console.log('23' / '2');
+console.log('23' > '18');
+
+
+// Truthy and Falsey Values-----------------
+// 5 falsey values: 0, '', undefined, null, NaN
+// everything else is truthy
+
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('string'));
+console.log(Boolean({}));
+console.log(Boolean(''));
+
+const money = 0;
+if (money) {
+	console.log("Don't spend it all ;)");
+} else {
+	console.log('You should get a job')
+}
+
+let height;
+
+if (height) {
+	console.log('Yay! Height is defined!')
+} else {
+	console.log("height is undefined........")
+}
 */
+
+// Equality operators-----------------------
+const age = '18';
+if (age === 18) console.log('You just became an adult (strict)')
+if (age == 18) console.log('You just became an adult (loose)')
+
+const favorite = Number(prompt("What's your favorite number?"));
+console.log(favorite);
+
+if (favorite === 13) {
+	console.log("Yay! That is the only correct answer!!")
+} else {
+	console.log("That is not 13!")
+}
+
+if (favorite !== 13) {
+	console.log("That is the wrong answer, you are silly for liking any other number than 13!")
+}
