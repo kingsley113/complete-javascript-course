@@ -2,8 +2,8 @@
 // Identify DOM elements
 const message = document.querySelector('.message');
 const score = document.querySelector('.score');
-const number = document.querySelector('.number');
-const highscore = document.querySelector('.highscore');
+const numberText = document.querySelector('.number');
+const highScoreText = document.querySelector('.highscore');
 
 const guessInput = document.querySelector('.guess');
 
@@ -12,6 +12,8 @@ const checkBtn = document.querySelector('.check');
 
 let secretNumber;
 let gameOver = false;
+let roundScore = 20;
+let highScore = 0;
 
 // Start round
 generateSecretNumber();
@@ -29,31 +31,33 @@ againBtn.addEventListener('click', function () {
 function checkGuess() {
   const guess = Number(guessInput.value);
   if (!gameOver) {
+    // When there is no input
     if (!guess) {
-      // If no entry
       displayMessage('No number entered!...');
-    } else if (guess < 1 || guess > 20 || guess == 0) {
-      // if entry is within 1 - 20
+
+      // When guess is out of range
+    } else if (guess < 1 || guess > 20) {
       displayMessage('Number is out of range!');
+
+      // When guess is not secret number
     } else if (guess !== secretNumber) {
       displayMessage(
         guess > secretNumber ? 'Guess is too high!' : 'Guess is too low!'
       );
       decreaseScore();
-      if (score.textContent <= 0) endRound();
+      if (roundScore <= 0) endRound();
+
+      // When guess is the secret number
     } else if (guess === secretNumber) {
-      // if entry is secret number
-      // update message and number box
       displayMessage('You guessed the secret number!!');
-      number.textContent = secretNumber;
-      // update gameOver status
+      numberText.textContent = secretNumber;
       gameOver = true;
-      // update highscore
-      if (score.textContent > highscore.textContent) {
-        highscore.textContent = score.textContent;
+      if (roundScore > highScore) {
+        highScore = roundScore;
+        highScoreText.textContent = highScore;
       }
-      // Change Background Color
       document.body.style.backgroundColor = 'green';
+      numberText.style.width = '30rem';
     }
   }
 }
@@ -64,16 +68,17 @@ function generateSecretNumber() {
 }
 
 function decreaseScore() {
-  const roundScore = Number(score.textContent) - 1;
-  score.textContent = String(roundScore);
+  roundScore--;
+  score.textContent = roundScore;
 }
 
 function resetGame() {
   score.textContent = 20; // reset score
   document.body.style.backgroundColor = ''; // reset background
+  numberText.style.width = '15rem'; // reset number box width
   displayMessage('Start guessing...'); // reset message
   guessInput.value = ''; // clear guess form
-  number.textContent = '?'; // reset secret number box
+  numberText.textContent = '?'; // reset secret number box
   generateSecretNumber(); // create new secret number
   gameOver = false; // reset gameOver status
 }
