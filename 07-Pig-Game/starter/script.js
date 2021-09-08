@@ -36,16 +36,25 @@ let currentPlayer = player1;
 let gameOver = false;
 
 // Initialize game on load
-score0El.textContent = 0;
-score1El.textContent = 0;
-currentScore0El.textContent = 0;
-currentScore1El.textContent = 0;
+function initialize() {
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  currentScore0El.textContent = 0;
+  currentScore1El.textContent = 0;
 
-diceEl.classList.add('hidden');
-currentPlayer.playerEl.classList.remove('player--winner');
+  player1.totalScore = 0;
+  player2.totalScore = 0;
+  resetScore();
+  if (currentPlayer === player2) switchPlayers();
+
+  diceEl.classList.add('hidden');
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+}
+
+initialize();
 
 // Event listeners
-
 btnRoll.addEventListener('click', function () {
   if (!gameOver) {
     // Generate dice rll
@@ -71,20 +80,12 @@ btnHold.addEventListener('click', function () {
     currentPlayer.totalScore += currentPlayer.currentScore;
     resetScore();
     updateUi();
-
     // Check if total score is >= 100
     currentPlayer.totalScore >= 100 ? endGame() : switchPlayers();
   }
 });
 
-btnNewGame.addEventListener('click', function () {
-  player1.totalScore = 0;
-  player2.totalScore = 0;
-  resetScore();
-  score0El.textContent = player1.totalScore;
-  score1El.textContent = player2.totalScore;
-  if (currentPlayer === player2) switchPlayers();
-});
+btnNewGame.addEventListener('click', initialize);
 
 // Functions
 function addPoints(points) {
@@ -109,4 +110,5 @@ function updateUi() {
 function endGame() {
   gameOver = true;
   currentPlayer.playerEl.classList.add('player--winner');
+  diceEl.classList.add('hidden');
 }
