@@ -42,33 +42,48 @@ currentScore0El.textContent = 0;
 currentScore1El.textContent = 0;
 
 diceEl.classList.add('hidden');
+currentPlayer.playerEl.classList.remove('player--winner');
 
 // Event listeners
+
 btnRoll.addEventListener('click', function () {
-  // Generate dice rll
-  let diceRoll = Math.ceil(Math.random() * 6);
-  // Display dice roll
-  console.log(diceRoll);
-  diceEl.classList.remove('hidden');
-  diceEl.src = `dice-${diceRoll}.png`;
-  // Check if dice roll is 1
-  if (diceRoll !== 1) {
-    currentPlayer.currentScore += diceRoll; // Add dice to current score
-    updateUi();
-  } else {
-    resetScore();
-    updateUi();
-    switchPlayers();
+  if (!gameOver) {
+    // Generate dice rll
+    let diceRoll = Math.ceil(Math.random() * 6);
+    // Display dice roll
+    console.log(diceRoll);
+    diceEl.classList.remove('hidden');
+    diceEl.src = `dice-${diceRoll}.png`;
+    // Check if dice roll is 1
+    if (diceRoll !== 1) {
+      currentPlayer.currentScore += diceRoll; // Add dice to current score
+      updateUi();
+    } else {
+      resetScore();
+      updateUi();
+      switchPlayers();
+    }
   }
 });
 
 btnHold.addEventListener('click', function () {
-  currentPlayer.totalScore += currentPlayer.currentScore;
-  resetScore();
-  updateUi();
+  if (!gameOver) {
+    currentPlayer.totalScore += currentPlayer.currentScore;
+    resetScore();
+    updateUi();
 
-  // Check if total score is >= 100
-  currentPlayer.totalScore >= 100 ? endGame() : switchPlayers();
+    // Check if total score is >= 100
+    currentPlayer.totalScore >= 100 ? endGame() : switchPlayers();
+  }
+});
+
+btnNewGame.addEventListener('click', function () {
+  player1.totalScore = 0;
+  player2.totalScore = 0;
+  resetScore();
+  score0El.textContent = player1.totalScore;
+  score1El.textContent = player2.totalScore;
+  if (currentPlayer === player2) switchPlayers();
 });
 
 // Functions
@@ -81,9 +96,9 @@ function resetScore() {
 }
 
 function switchPlayers() {
-  currentPlayer.playerEl.classList.remove('player--active');
+  currentPlayer.playerEl.classList.toggle('player--active');
   currentPlayer = currentPlayer === player1 ? player2 : player1;
-  currentPlayer.playerEl.classList.add('player--active');
+  currentPlayer.playerEl.classList.toggle('player--active');
 }
 
 function updateUi() {
@@ -93,5 +108,5 @@ function updateUi() {
 
 function endGame() {
   gameOver = true;
-  alert(`${currentPlayer.name} wins!`);
+  currentPlayer.playerEl.classList.add('player--winner');
 }
